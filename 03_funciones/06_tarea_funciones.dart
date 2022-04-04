@@ -15,6 +15,24 @@ main() {
   // llamados usando nuestra función personalizada
   stdout.writeln('=========== Usuario 1 =============');
 
+  int opcion =1;
+
+  do{
+  usuario();
+  stdout.writeln('¿Cúal es su nombre?');
+  stdout.writeln('1. para continuar');
+  stdout.writeln('2. para finalizar');
+  opcion = int.parse(stdin.readLineSync() ?? '');
+
+  } while (opcion == 1);
+
+
+}
+
+
+
+void usuario (){
+
 
   stdout.writeln('¿Cúal es su nombre?');
   String nombre = stdin.readLineSync() ?? '';
@@ -35,7 +53,11 @@ main() {
   stdout.writeln('Usuario 1 sin deducciones');
   stdout.writeln( usuario );
 
-  double salario     = 1500;
+  stdout.writeln('¿Cúal es su salario?');
+  double salario = double.parse( stdin.readLineSync() ?? '' );
+
+
+  
   double deducciones = salario * 0.15;
   double salarioNeto = salario - deducciones;
 
@@ -46,37 +68,4 @@ main() {
   stdout.writeln(usuario);
 
 
-  // Persona 2
-  stdout.writeln('=========== Usuario 2 =============');
-
-  stdout.writeln('¿Cúal es su nombre?');
-  String nombre2 = stdin.readLineSync() ?? '';
-
-  stdout.writeln('¿Qué edad tienes?');
-  String edad2 = stdin.readLineSync() ?? '';
-  
-  stdout.writeln('¿En qué país naciste?');
-  String pais2 = stdin.readLineSync() ?? '';
-  
-
-  final Map<String, dynamic> usuario2 = {
-    'nombre': nombre2,
-    'edad'  : edad2,
-    'pais'  : pais2
-  };
-
-  stdout.writeln('Usuario 2 sin deducciones');
-  stdout.writeln( usuario2 );
-
-  double salario2     = 1800;
-  double deducciones2 = salario2 * 0.15;
-  double salarioNeto2 = salario2 - deducciones2;
-
-  usuario2['salario']     = salario2;
-  usuario2['deducciones'] = deducciones2;
-  usuario2['salarioNeto'] = salarioNeto2;
-
-  stdout.writeln(usuario2);
-
 }
-
